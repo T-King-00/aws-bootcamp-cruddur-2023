@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   backend-flask:
+
     environment:
       FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
       BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
@@ -9,6 +10,15 @@ services:
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
+    healthcheck:
+      test: ["CMD", "curl", "-X" ,"GET" ,"http://localhost:4567/api/activities/home" ,"-H","Accept: application/json", "-H", "Content-Type: application/json"]
+      interval: 1m
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+
+
   frontend-react-js:
     environment:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
