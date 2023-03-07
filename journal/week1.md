@@ -5,11 +5,11 @@ We also created a docker compose file (The Compose file is a YAML file defining 
 Docker compose helps us in bootstrapping containers at same time .
 
 -learned about envirnoment variables and their use cases as 
--- Execution mode (e.g., production, development, staging, etc.)
--- Domain names
--- API URL/URI’s
--- Public and private authentication keys (only secure in server applications)
--- Service account names
+  -Execution mode (e.g., production, development, staging, etc.)
+  - Domain names
+  - API URL/URI’s
+  - Public and private authentication keys (only secure in server applications)
+  - Service account names
 
 
 # Homework 
